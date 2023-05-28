@@ -8,8 +8,8 @@ the code is being written in | C 90 and C++ 98
 to compile you need  
   
 Open Watcom 1.9  
-[WINDOWS](http://openwatcom.org/ftp/install/open-watcom-c-win32-1.9.exe)  
-[LINUX](http://openwatcom.org/ftp/install/open-watcom-c-linux-1.9)
+[DOWNLOAD WINDOWS](http://openwatcom.org/ftp/install/open-watcom-c-win32-1.9.exe)  
+[DOWNLOAD LINUX](http://openwatcom.org/ftp/install/open-watcom-c-linux-1.9)
 
 CLANG  
 [Clang Website](https://releases.llvm.org/download.html)

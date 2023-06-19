@@ -15,10 +15,6 @@ Open Watcom 1.9
 [DOWNLOAD WINDOWS](http://openwatcom.org/ftp/install/open-watcom-c-win32-1.9.exe)  
 // DOWNLOAD LINUX not working :) <!---(http://openwatcom.org/ftp/install/open-watcom-c-linux-1.9)-->
 
-x64  
-CLANG 
-[Clang Website](https://releases.llvm.org/download.html)
   
-
-and OpenGl Modified/Fixed Files Incluse in [more_files](https://github.com/SILDTeam/LEFA-GE/tree/main/more_files)  
+and OpenGl Modified / Fixed Files Incluse in [more_files](https://github.com/SILDTeam/LEFA-GE/tree/main/more_files)  
   

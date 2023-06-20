@@ -10,10 +10,12 @@ the code is totally poorly optimized
 the code is being written in | C 90 and C++ 98  
   
 to compile you need  
- x32   
-Open Watcom 1.9  
-[DOWNLOAD WINDOWS](http://openwatcom.org/ftp/install/open-watcom-c-win32-1.9.exe)  
-// DOWNLOAD LINUX not working :) <!---(http://openwatcom.org/ftp/install/open-watcom-c-linux-1.9)-->
+
+ <img src="web_Help_Res/Watcom_mini.png" width="25" height="25" /> Open WATCOM 1.9  
+- <img src="web_Help_Res/windows_icon_aero.png" width="25" height="25" /> [Windows x32](http://openwatcom.org/ftp/install/open-watcom-c-win32-1.9.exe)   
+
+    
+-  DOWNLOAD LINUX not working :) <!---(http://openwatcom.org/ftp/install/open-watcom-c-linux-1.9)-->
 
   
 and OpenGl Modified / Fixed Files Incluse in [more_files](https://github.com/SILDTeam/LEFA-GE/tree/main/more_files)  

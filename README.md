@@ -15,20 +15,25 @@ to compile you need
 - <img src="web_Help_Res/windows_icon_aero.png" width="25" height="25" /> [Windows x32](http://openwatcom.org/ftp/install/open-watcom-c-win32-1.9.exe)   
 
     
-- <img src="web_Help_Res/icons8-linux-96.png" width="25" height="25" />  LINUX x32 not working :( </div>
+- <img src="web_Help_Res/icons8-linux-96.png" width="25" height="25" />  LINUX x32 not working :(  
+
+</div>
   <details>
-   <summary> Info Linux Version.  </summary>  
-   HI!  
-    at  
-    the   
-    moment  
-    the   project  
-    is  
-    not  
-    compatible  
-    with  
-    linux  
-    
+   <summary> Linux Problem Info.  </summary> 
+
+   # HI!  
+   at  
+   ㅤthe  
+   ㅤㅤㅤmoment  
+   ㅤㅤㅤㅤㅤㅤthe  
+   ㅤㅤㅤㅤㅤㅤㅤproject  
+   ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤis  
+   ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤnot  
+   ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤcompatible  
+   ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤwith  
+   ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLINUX
+   
+  
 </details> 
 
 <!---(http://openwatcom.org/ftp/install/open-watcom-c-linux-1.9)-->

@@ -1,4 +1,4 @@
-@echo off
+echo off
 title Program Build! |color 06
 echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 echo "                                                                                     "
@@ -22,10 +22,19 @@ echo.
 
 setlocal enabledelayedexpansion
 
+REM LEFA Window Demo
+
 REM IGNORE COMMAND  2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 
-REM /6s Optimized Option For Pentium x32 family (Pentium Pro | Pentium II)
-REM -fp6 Optimized Option For Binary Precision
+REM /6r (32-bit only) generate 386 instructions based on Intel Pentium Pro instruction timings and
+REM   use register-based argument passing conventions
+
+REM /6s (32-bit only) generate 386 instructions based on Intel Pentium Pro instruction timings and
+REM   use stack-based argument passing conventions
+
+REM -fp6 Optimized Option For Binary Precision / generate in-line 80x87 instructions optimized for Pentium Pro processor
+REM -et Get Debug Functions()
+
 
 if not exist "EXT" (
     mkdir "EXT"
@@ -34,25 +43,36 @@ if not exist "EXT" (
     echo.
 )
 
-Time /t > output.txt
-Date /t >> output.txt
+Time /t > build_out.txt
+Date /t >> build_out.txt
+echo last_compilation >> build_out.txt
 
 
-REM MKDIR EXT
 cd src
 echo.
-echo  __________(MAIN.CPP)________________________________________
+echo  __________(windowPoly.CPP)________________________________________
 echo /____________________________________________________________\
- 	 @wpp386 -DWINDOWS /6s -fp6 -et main.cpp -Fo="../EXT/main"  ^
- 	 2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
+ 	 @wpp386 -DWIN32 /6r -fp6 -et lefaDemos/windowPoly.cpp -Fo="../EXT/main"  ^
+     2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
 echo.
 echo.
 echo.
+echo  __________(WINDOWSYSTEM.CPP)__________________________________
+echo /____________________________________________________________\
+     @wpp386 /6r -fp6 -et lefa/platforms/windows/windowSystem.cpp -Fo="../EXT/windowSystem" ^
+     2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
+echo ______________________________________________________________
+echo \____________________________________________________________/
+echo.
+echo.
+echo.
+echo.
+echo.
 echo  __________(engineArgs.CPP)__________________________________
 echo /____________________________________________________________\
-     @wpp386 -DWINDOWS /6s -fp6 -et extension/engineArgs.cpp -Fo="../EXT/engineArgs" ^
+     @wpp386 -DWIN32 /6r -fp6 -et lefa/engineArgs.cpp -Fo="../EXT/engineArgs" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -63,7 +83,7 @@ echo.
 echo.
 echo  __________(GLAD_GL.C)__________________________________________
 echo /____________________________________________________________\
-     @wpp386 /6s glad/GLAD_GL.C -fp6 -et -Fo="../EXT/glad" ^
+     @wpp386 /6r lefa/render/glad/GLAD_GL.C -fp6 -et -Fo="../EXT/glad" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -72,7 +92,7 @@ echo.
 echo.
 echo  __________(RESOURCE)________________________________________
 echo /____________________________________________________________\
-     @wrc resources/win32.rc -r -fo="../EXT/win32.res"  ^
+     @wrc lefaDemos/resources/win32.rc -r -fo="../EXT/win32.res"   ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -85,7 +105,7 @@ echo.
 echo.
 echo  __________(Linker)________________________________________
 echo /__________________________________________________________\
-     @wlink option resource 'win32.res' name BAZ.exe file *.obj ^
+     @wlink option resource 'win32.res' name LEFA.exe file *.obj ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ____________________________________________________________
 echo \__________________________________________________________/
@@ -97,11 +117,7 @@ echo \__________________________________________________________/
 echo.
 echo _
 
-if not exist "OBJ" (
-    mkdir "OBJ"
-    echo Direcorty 'OBJ'created with sucess.
-) else (echo.)
-
-move *.obj OBJ | echo.
+del *.obj 
+del *.res 
 
 pause

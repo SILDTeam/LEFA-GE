@@ -7,10 +7,10 @@ the project is being done in another way  ...
 
 this code is just the beginning/studies/research of what this could be in the future  
 the code is totally poorly optimized
-
+## what you need, to build.
 the code is being written in | C 90 and C++ 98  
   
-to compile you need  
+#### to compile you need  
 
  <img src="web_Help_Res/Watcom_mini.png" width="35" height="35" /> Open WATCOM 1.9  
 - [<img src="web_Help_Res/windows_icon_aero.png" width="25" height="25" /> Windows x32](http://openwatcom.org/ftp/install/open-watcom-c-win32-1.9.exe)   
@@ -42,3 +42,9 @@ to compile you need
   
 and OpenGl Modified / Fixed Files Incluse in [more_files](https://github.com/SILDTeam/LEFA-GE/tree/main/more_files)  
   
+
+####  replace default WATCOM files  
+you need to place the files from the MORE FILES directory  inside the Open Watcom installation location  
+the default location is C:\WATCOM   
+
+

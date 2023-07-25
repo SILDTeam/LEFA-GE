@@ -20,13 +20,12 @@ void ifGameConfigNotExist(){
         fprintf(usrc, "\n //based engine default file"
                         "// Window Config "
                         " "
-                         "\n title = \"LEFA BASE\"; "
                          "\n wsize = \"800x600\"; "
-                         "\n wpos = \"0x0\"; ");
+                         "\n frameRate =\"60\"; ");
         fclose(usrc);
 
 
-        printf("\n Error! : GC_engine.lec Not found!\n \n");
+        printf(" Error! : GC_engine.lec Not found! \n");
 
 
     // Se o programa chegou até aqui, houve um erro ao reiniciar o programa
@@ -41,7 +40,7 @@ const char* command = "BAZ";
     // Verificar se houve um erro ao reiniciar o programa
     if (result == -1) {
         printf("\nError! : Failed to restart the program.\n\n");
-        exit(1); // Terminar o programa caso não seja possível reiniciá-lo
+        exit(-1); // Terminar o programa caso não seja possível reiniciá-lo
     }
     exit(0);
 

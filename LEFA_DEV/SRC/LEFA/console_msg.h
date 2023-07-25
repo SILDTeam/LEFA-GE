@@ -29,7 +29,7 @@ void gameVersion(const char* gameName, const char* version)
 
 void engineVersion()
 {
-    printLine("LEFA Build: 17.07.23", ANSI_COLOR_GREEN);
+    printLine("LEFA Build: 25.07.23", ANSI_COLOR_GREEN);
 }
 
 

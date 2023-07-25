@@ -14,29 +14,36 @@
 #endif
 */
 
-//OpenGL Loader GLAD
-#include"lefa/render/glad/glad_gl.H";
 
+//  C / C++ LIBS
 
-/*  C / C++ LIBS
-*/
 //#include<iostream>
 //#include<stdio.h> //fopen
 //#include<stdlib.h>
 //#include<string.h>
 
-/* engine libs
-*/
+// engine libs
 
+//OpenGL Loader GLAD
+#include"lefa/render/glad/glad_gl.H";
+//
 #include"lefa/engineArgs.h";
 #include"lefa/file_manager.h";
-//#include"eheader/glad_manager.h";
 #include"lefa/console_msg.h";
+
+bool isSomethingChanged = false;
 
 
 void Render()
 {
-    glClearColor(0.2f, 0.3f, 0.4f, 1.0f);
+    //glClearColor(0.2f, 0.3f, 0.4f, 1.0f);
+
+    if (isSomethingChanged) {
+        // Faça a alteração que você deseja aqui, por exemplo, alterar a cor de fundo
+        glClearColor(0.8f, 0.6f, 0.2f, 1.0f);
+    } else {
+        glClearColor(0.2f, 0.3f, 0.4f, 1.0f);
+    }
     glClear(GL_COLOR_BUFFER_BIT);
 
     glBegin(GL_TRIANGLES);
@@ -47,6 +54,37 @@ void Render()
     glColor3f(0.0f, 0.0f, 1.0f);
     glVertex2f(0.0f, 0.5f);
     glEnd();
+
+    if (keyInput(KEY_ESC))
+    {   
+        isRunning = false;
+    }
+
+    if (keyInput(KEY_E))
+    {
+        isSomethingChanged = true;
+    }else {
+        isSomethingChanged = false;
+    }
+    if(keyInput(KEY_U))
+    {
+        engineSetWindowTitle("00");
+    }
+    if(keyInput(KEY_I))
+    {
+        engineSetWindowTitle("22");
+    }
+    if(keyInput(KEY_B))
+    {
+        printf("Hello \n");
+    }
+
+    mouseInput();
+
+    if (keyInput(KEY_Z))
+    {
+        windowBorderless(800, 600);
+    }
 }
 
 int main (int argc, char* argv[], char* envp[])
@@ -61,20 +99,27 @@ int main (int argc, char* argv[], char* envp[])
 
     int wWidth  = 0, 
         wHeight = 0; 
-
-    wWidth =  800;
-    wHeight = 600;
+        //
+        wWidth =  800;
+        wHeight = 600;
 
     printLine("wWidth: %d", wWidth);
     printLine("wHeight: %d", wHeight);
 
     engineCreateWindow(wWidth, wHeight);
+
+    if (!engineCreateWindow)
+    {
+        isRunning = false;
+        return -1;
+    }
+
+
     engineSetWindowTitle("WindowPoly");
     engineSetWindowIcon("glsaver.ico");
 
     gladLoadGL();
-
-    engineGLoop(Render);
+    runEngineLoop(Render);
 
     return 0;
 }

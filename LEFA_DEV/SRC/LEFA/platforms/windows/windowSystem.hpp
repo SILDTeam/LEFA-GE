@@ -4,19 +4,20 @@
 #include<windows.h>
 #include<string.h>
 
-// Função para criar uma janela
+extern bool isRunning; //game running check
+
 void engineCreateWindow(int width, int height);
 
-// Função para definir o título da janela
 void engineSetWindowTitle(const char* title);
 
-// Função para definir o ícone da janela
 void engineSetWindowIcon(const char* iconPath);
 
-// Função para obter a resolução da janela
-void engineGetWindowResolution(int& width, int& height);
+//Broke
+//void engineGetWindowResolution(int& width, int& height);
 
-int engineGLoop(void (*renderFunction)());
+int runEngineLoop(void (*renderFunction)());
+
+void windowBorderless(int windowWidth, int windowHeight);
 
 #endif // WINDOW_SYSTEM_HPP
 

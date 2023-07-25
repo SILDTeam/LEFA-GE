@@ -1,30 +1,52 @@
 #include"windowSystem.hpp";
+#include"uInput.hpp";
+//
 #include<windows.h>
 #include<GL/GL.H>
+#include<cstdio>
 
 
 HWND hWnd; // Manipulador da janela
 HDC hdc;
 HGLRC hrc;
 
+bool isRunning = true;
+const char* className = "lefaWClass";
+
+bool isWindowBorderless = false;
+
+bool isWindowActive = true; // Variável para controlar se a janela do jogo está ativa ou não
+int windowWidth;
+int windowHeight;
+
+
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
     // Processar mensagens da janela
     switch (uMsg)
     {
+
+        case WM_SIZE:
+        {
+            // Atualizar as variáveis globais com a largura e altura da janela
+            windowWidth = LOWORD(lParam);
+            windowHeight = HIWORD(lParam);
+            break;
+        }
+
         case WM_DESTROY:
             PostQuitMessage(0);
             return 0;
     }
-
+    
     return DefWindowProc(hWnd, uMsg, wParam, lParam);
 }
 
 
+
 void engineCreateWindow(int width, int height)
 {   
-    // Registrar a classe da janela
-    const char* className = "lefaWClass";
+    //Register the window class
     HINSTANCE hInstance = GetModuleHandle(NULL);
 
     WNDCLASS wc = {0};
@@ -44,10 +66,10 @@ void engineCreateWindow(int width, int height)
         exit(1);
 
 
-    // Obter as dimensões da tela
+    //Get screen dimensions
     int screenWidth = GetSystemMetrics(SM_CXSCREEN);
     int screenHeight = GetSystemMetrics(SM_CYSCREEN);
-     // Calcular as coordenadas da janela para centralizá-la na tela
+     //Calculate window coordinates to center it on the screen
     int windowPosX = (screenWidth - width) / 2;
     int windowPosY = (screenHeight - height) / 2;
 
@@ -93,39 +115,57 @@ void engineCreateWindow(int width, int height)
     ShowWindow(hWnd, SW_SHOWDEFAULT);
 }
 
-int engineGLoop(void (*renderFunction)())
+
+int runEngineLoop(void (*renderFunction)())
 {
-    // Restante do código...
 
+    //Start Loop
     MSG msg;
-    while (GetMessage(&msg, NULL, 0, 0))
+    while (isRunning) // Loop será executado enquanto isRunning for true
     {
-        TranslateMessage(&msg);
-        DispatchMessage(&msg);
+        //check if the window is active
+        isWindowActive = (GetForegroundWindow() == hWnd);
 
+         setInputEnabled(isWindowActive);
+
+        if (isWindowActive)
+        {
+            mouseInput();
+        }
+
+
+
+        if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
+        {
+            if (msg.message == WM_QUIT)
+            {
+                isRunning = false; //Set isRunning to false to end the loop
+                break;
+            }
+            TranslateMessage(&msg);
+            DispatchMessage(&msg);
+        }
         renderFunction();
-
         SwapBuffers(hdc);
     }
-
     wglMakeCurrent(NULL, NULL);
     wglDeleteContext(hrc);
     ReleaseDC(hWnd, hdc);
     DestroyWindow(hWnd);
 
     return (int)msg.wParam;
-
 }
+
 
 void engineSetWindowTitle(const char* title)
 {
-    // Definir o título da janela
+    //Set window title
     SetWindowText(hWnd, title);
 }
 
 void engineSetWindowIcon(const char* iconPath)
 {
-    // Definir o ícone da janela
+    //Set the window icon
     HICON hIcon = (HICON)LoadImage(
         GetModuleHandle(NULL),
         iconPath,
@@ -136,6 +176,55 @@ void engineSetWindowIcon(const char* iconPath)
     SendMessage(hWnd, WM_SETICON, ICON_BIG, (LPARAM)hIcon);
 }
 
+
+
+
+void windowBorderless(int windowWidth, int windowHeight)
+{
+    if (isWindowBorderless) {
+        // Se já está sem bordas, restaura o estilo da janela com bordas
+        DWORD style = GetWindowLongPtr(hWnd, GWL_STYLE);
+        style |= (WS_CAPTION | WS_THICKFRAME);
+        SetWindowLongPtr(hWnd, GWL_STYLE, style);
+        SetWindowPos(hWnd, HWND_TOP,
+                     0, 0,
+                     windowWidth, windowHeight,
+                     SWP_SHOWWINDOW | SWP_FRAMECHANGED);
+
+        isWindowBorderless = false;
+    }
+    else {
+        // Se está com bordas, remove as bordas e define o tamanho e posição da janela para ocupar toda a tela
+        DWORD style = GetWindowLongPtr(hWnd, GWL_STYLE);
+        style &= ~(WS_CAPTION | WS_THICKFRAME);
+        SetWindowLongPtr(hWnd, GWL_STYLE, style);
+        SetWindowPos(hWnd, HWND_TOP,
+                     0, 0,
+                     GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN),
+                     SWP_SHOWWINDOW | SWP_FRAMECHANGED);
+
+        isWindowBorderless = true;
+    }
+}
+
+/*
+void windowBorderless()
+{
+    // Obter o estilo atual da janela
+    DWORD style = GetWindowLongPtr(hWnd, GWL_STYLE);
+
+    // Remover bordas e definir o tamanho e posição da janela para ocupar toda a tela
+    SetWindowLongPtr(hWnd, GWL_STYLE, style & ~(WS_CAPTION | WS_THICKFRAME));
+    SetWindowPos(hWnd, HWND_TOP,
+                 0, 0,
+                 GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN),
+                 SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
+}
+*/
+
+
+
+/* is a broke func
 void enigneGetWindowResolution(int& width, int& height)
 {
     // Obter a resolução da janela
@@ -143,86 +232,5 @@ void enigneGetWindowResolution(int& width, int& height)
     GetClientRect(hWnd, &rect);
     width = rect.right - rect.left;
     height = rect.bottom - rect.top;
-}
-
-/*
-bool engineWindowShouldClose()
-{
-    MSG msg;
-    while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
-    {
-        if (msg.message == WM_QUIT)
-            return true;
-
-        TranslateMessage(&msg);
-        DispatchMessage(&msg);
-    }
-
-    return false;
-}
-*/
-
-
-/*
-HWND hWnd; // Manipulador da janela
-
-LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
-{
-    // Processar mensagens da janela
-    switch (uMsg)
-    {
-        case WM_DESTROY:
-            PostQuitMessage(0);
-            return 0;
-    }
-
-    return DefWindowProc(hWnd, uMsg, wParam, lParam);
-}
-
-void engineCreateWindow(int width, int height)
-{
-    // Registrar a classe da janela
-    WNDCLASS wc = {0};
-    wc.lpfnWndProc = WindowProc;
-    wc.hInstance = GetModuleHandle(NULL);
-    wc.lpszClassName = "GameEngineWindowClass";
-    RegisterClass(&wc);
-
-    // Criar a janela
-    hWnd = CreateWindowEx(
-        0,
-        "GameEngineWindowClass",
-        "Game Engine",
-        WS_OVERLAPPEDWINDOW,
-        CW_USEDEFAULT,
-        CW_USEDEFAULT,
-        width,
-        height,
-        NULL,
-        NULL,
-        wc.hInstance,
-        NULL);
-
-    // Mostrar a janela
-    ShowWindow(hWnd, SW_SHOWDEFAULT);
-}
-
-void engineSetWindowIcon(const char* iconPath)
-{
-    // Definir o ícone da janela
-    HICON hIcon = (HICON)LoadImage(
-        GetModuleHandle(NULL),
-        iconPath,
-        IMAGE_ICON,
-        32,
-        32,
-        LR_LOADFROMFILE);
-    SendMessage(hWnd, WM_SETICON, ICON_BIG, (LPARAM)hIcon);
-}
-
-void engineSetWindowTitle(const char* title)
-{
-    // Definir o título da janela
-    SetWindowText(hWnd, title);
 }
 */

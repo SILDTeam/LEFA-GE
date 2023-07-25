@@ -1,3 +1,3 @@
 @echo off
 
-start BAZ.exe -sw_console
+start LEFA.exe -sw_console

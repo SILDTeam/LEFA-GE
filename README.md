@@ -18,7 +18,7 @@ the code is being written in | C 90 and C++ 98
     
 - <img src="web_Help_Res/icons8-linux-96.png" width="25" height="25" />  [open-watcom-c-linux-1.9](http://openwatcom.org/ftp/install/open-watcom-c-linux-1.9)
 
-- you need a script and define path to linux.
+- you need a script and define [path to linux.](https://github.com/SILDTeam/LEFA-GE/blob/main/web_Help_Res/LINUX/watcom_config.sh)
 
   
 and OpenGl Modified / Fixed Files Incluse in [more_files](https://github.com/SILDTeam/LEFA-GE/tree/main/more_files)  

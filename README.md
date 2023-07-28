@@ -16,28 +16,9 @@ the code is being written in | C 90 and C++ 98
 - [<img src="web_Help_Res/windows_icon_aero.png" width="25" height="25" /> open-watcom-c-win32-1.9.exe](http://openwatcom.org/ftp/install/open-watcom-c-win32-1.9.exe)   
 
     
-- <img src="web_Help_Res/icons8-linux-96.png" width="25" height="25" />  LINUX x32 not working :(  
+- <img src="web_Help_Res/icons8-linux-96.png" width="25" height="25" />  [open-watcom-c-linux-1.9](http://openwatcom.org/ftp/install/open-watcom-c-linux-1.9)
 
-</div>
-  <details>
-   <summary> Linux Problem Info.  </summary> 
-
-   # HI!  
-   at  
-   ㅤthe  
-   ㅤㅤㅤmoment  
-   ㅤㅤㅤㅤㅤㅤthe  
-   ㅤㅤㅤㅤㅤㅤㅤproject  
-   ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤis  
-   ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤnot  
-   ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤcompatible  
-   ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤwith  
-   ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤLINUX
-   
-  
-</details> 
-
-<!---(http://openwatcom.org/ftp/install/open-watcom-c-linux-1.9)-->
+- you need a script and define path to linux.
 
   
 and OpenGl Modified / Fixed Files Incluse in [more_files](https://github.com/SILDTeam/LEFA-GE/tree/main/more_files)  

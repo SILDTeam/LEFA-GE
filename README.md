@@ -19,12 +19,11 @@ the code is being written in | C 90 and C++ 98
 - <img src="web_Help_Res/icons8-linux-96.png" width="25" height="25" />  [open-watcom-c-linux-1.9](http://openwatcom.org/ftp/install/open-watcom-c-linux-1.9)
 
 ________
-#### Install Watcom to linux info.
+#### Install Watcom and Configure Project to linux info.
 </div>
   <details>
    <summary> FOR LINUX  </summary>  
     
- sudo apt-get install libx11-dev libgl1-mesa-dev libxcb1-dev libxcb-keysyms1-dev libxcb-xfixes0-dev
 
 you need to extract open-watcom-c-linux-1.9 file  
 and put his files in a directory called WATCOM  
@@ -35,6 +34,10 @@ getting like this /usr/bin/WATCOM
 
 - extract you need a script and define [path to linux.](https://github.com/SILDTeam/LEFA-GE/blob/main/web_Help_Res/LINUX/watcom_config.sh) or put the code in .bashrc
 
+and donwload LIBS with Console
+
+sudo apt-get install libx11-dev libgl1-mesa-dev libxcb1-dev libxcb-keysyms1-dev libxcb-xfixes0-dev
+======
 </details>
 
 ________

@@ -19,6 +19,9 @@ the code is being written in | C 90 and C++ 98
 - <img src="web_Help_Res/icons8-linux-96.png" width="25" height="25" />  [open-watcom-c-linux-1.9](http://openwatcom.org/ftp/install/open-watcom-c-linux-1.9)
 
 #### Install Watcom to linux info.
+
+libs sudo apt-get install libx11-dev libgl1-mesa-dev libxcb1-dev libxcb-keysyms1-dev libxcb-xfixes0-dev
+
 you need to extract open-watcom-c-linux-1.9 file  
 and put his files in a directory called WATCOM  
 then you will move this directory to  

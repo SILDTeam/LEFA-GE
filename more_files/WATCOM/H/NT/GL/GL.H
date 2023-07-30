@@ -14,9 +14,9 @@
 
 
 #ifndef __gl_h_
-#ifndef __GL_H__
-
 #define __gl_h_
+
+#ifndef __GL_H__
 #define __GL_H__
 
 
@@ -1239,9 +1239,7 @@ typedef void (* PFNGLGETCOLORTABLEPARAMETERFVEXTPROC)
  void APIENTRY        glViewport (GLint x, GLint y, GLsizei width, GLsizei height);
 
 
-#ifdef __cplusplus
-} /* extern "C" */
-#endif
+
 
 #endif /* __gl_h__ */
 

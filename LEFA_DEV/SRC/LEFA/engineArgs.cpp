@@ -9,6 +9,7 @@
 #ifdef LINUX
     #include<dlfcn.h>
     #include"platforms/linux_header.h";
+    #include<string.h>
 #endif
 
 //#include<cstring> // strcmp for new Compilers . Open Watcom need windows.h for load strcmp

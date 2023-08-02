@@ -34,6 +34,8 @@ getting like this /usr/bin/WATCOM
 
 - extract you need a script and define [path to linux.](https://github.com/SILDTeam/LEFA-GE/blob/main/web_Help_Res/LINUX/watcom_config.sh) or put the code in .bashrc
 
+sudo chmod +x -r /usr/bin/WATCOM
+
 and donwload LIBS with Console
 
 sudo apt-get install libx11-dev libgl1-mesa-dev libxcb1-dev libxcb-keysyms1-dev libxcb-xfixes0-dev

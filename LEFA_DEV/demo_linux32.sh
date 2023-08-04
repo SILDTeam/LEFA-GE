@@ -32,7 +32,7 @@ echo "__________________________________________________________________________
 echo ""
 echo "  __________(windowPoly.CPP)________________________________________"
 echo "/____________________________________________________________\\"
-	wpp386 -DLINUX -6r -fp6 "lefaDemos/windowPoly.cpp" -Fo="../EXT/main" \
+	wpp386 -DLINUX -6s -fp6 "lefaDemos/windowPoly.cpp" -Fo="../EXT/main" \
 	2>&1 | grep -v "Open Watcom\|Portions\|See"
 echo "________________________________________________________________"
 echo "\\____________________________________________________________/"
@@ -44,7 +44,7 @@ echo "__________________________________________________________________________
 echo ""
 echo "  __________(WINDOWSYSTEM.CPP)__________________________________"
 echo "/____________________________________________________________\\"
-	wpp386 -6r -fp6 -et LEFA/platforms/linux/windowSystem.cpp -Fo="../EXT/windowSystem" \
+	wpp386 -6s -fp6 -et LEFA/platforms/linux/windowSystem.cpp -Fo="../EXT/windowSystem" \
 	2>&1 | grep -v "Open Watcom\|Portions\|See"
 echo "________________________________________________________________"
 echo "\\____________________________________________________________/"
@@ -56,7 +56,7 @@ echo ""
 echo ""
 #echo "  __________(UINPUT.CPP)__________________________________"
 #echo "/____________________________________________________________\\"
-#	wpp386 -6r -fp6 -et LEFA/platforms/linux/uInput.cpp -Fo="../EXT/uInput" 2>&1 | grep -v "Open Watcom\|Portions\|See"
+#	wpp386 -6s -fp6 -et LEFA/platforms/linux/uInput.cpp -Fo="../EXT/uInput" 2>&1 | grep -v "Open Watcom\|Portions\|See"
 #echo "________________________________________________________________"
 #echo "\\____________________________________________________________/"
 #echo ""
@@ -66,7 +66,7 @@ echo ""
 echo ""
 echo "  __________(engineArgs.CPP)__________________________________"
 echo "/____________________________________________________________\\"
-	wpp386 -DLINUX -6r -fp6 LEFA/engineArgs.cpp -Fo="../EXT/engineArgs" \
+	wpp386 -DLINUX -6s -fp6 LEFA/engineArgs.cpp -Fo="../EXT/engineArgs" \
 	2>&1 | grep -v "Open Watcom\|Portions\|See"
 echo "________________________________________________________________"
 echo "\\____________________________________________________________/"
@@ -77,7 +77,7 @@ echo ""
 echo ""
 echo "  __________(GLAD_GL.C)__________________________________________"
 echo "/____________________________________________________________\\"
-	wpp386  -6r LEFA/render/glad/glad_gl.c -fp6 -Fo="../EXT/glad"   \
+	wpp386  -6s LEFA/render/glad/glad_gl.c -fp6 -Fo="../EXT/glad"   \
 	2>&1 | grep -v "Open Watcom\|Portions\|See"
 echo "________________________________________________________________"
 echo "\\____________________________________________________________/"
@@ -88,7 +88,7 @@ echo ""
 echo For LINUX
 echo "  __________(GLAD_GLX.C)__________________________________________"
 echo "/____________________________________________________________\\"
-	wpp386  -6r LEFA/render/glad/glad_glx.c -fp6 -Fo="../EXT/glad_glx"  \
+	wpp386  -6s LEFA/render/glad/glad_glx.c -fp6 -Fo="../EXT/glad_glx"  \
 	2>&1 | grep -v "Open Watcom\|Portions\|See"
 echo "________________________________________________________________"
 echo "\\____________________________________________________________/"

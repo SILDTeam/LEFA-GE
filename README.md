@@ -28,7 +28,7 @@ ________
    <summary> FOR WINDOWS </summary>  
     
 ### Fixe watcom OpenGL Syntax Error! 
-put OpenGl Modified / Fixed Files Incluse in [more_files](https://github.com/SILDTeam/LEFA-GE/tree/main/more_files)  
+put OpenGl Modified / Fixed Files Incluse in [more_Files/Windows](https://github.com/SILDTeam/LEFA-GE/tree/main/more_files/windows/WATCOM)  
 
   replace default WATCOM files  
 you need to place the files from the MORE FILES directory  inside the Open Watcom installation location  

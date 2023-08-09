@@ -61,6 +61,11 @@ with unzip .
 
 you need to install unzip or something of your choice, but here is unzip.  
 
+##### Unzip Installation 
+```sh
+sudo apt-get install unzip
+```
+
 in the directory where you downloaded the file `open-watcom-c-linux-1.9` put the following command  
 ```sh
 unzip open-watcom-c-linux-1.9 -d WATCOM
@@ -98,7 +103,7 @@ sudo chmod -R 777 /usr/bin/WATCOM
 
 Just Wait
 
-NOTE ! libX11.a is not working in Open Watcom 1.9 , we need Compile libX11.a with Open Watcom .
+##### NOTE ! libX11.a is not working in Open Watcom 1.9 , we need Compile libX11.a with Open Watcom .
 
 </details>
 

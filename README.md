@@ -24,22 +24,43 @@ ________
   <details>
    <summary> FOR LINUX  </summary>  
     
-
+### step 1
 you need to extract open-watcom-c-linux-1.9 file  
 and put his files in a directory called WATCOM  
 then you will move this directory to  
-/usr/bin  
+
+`` /usr/bin ``  
   
-getting like this /usr/bin/WATCOM  
+getting like this ` /usr/bin/WATCOM `   
 
-- extract you need a script and define [path to linux.](https://github.com/SILDTeam/LEFA-GE/blob/main/web_Help_Res/LINUX/watcom_config.sh) or put the code in .bashrc
+### step 2  
 
-sudo chmod +x -r /usr/bin/WATCOM
+you need a script and define Watcom Files path to linux put the code in `.bashrc `   
+and now put the entire code below inside the .bashrc file, open the .bashrc and at the end of it put the following code.
 
-and donwload LIBS with Console
+```sh
+# Linux 32-bit shell script:
+# ---------------------------------------------------------------------------
+export WATCOM=/usr/bin/WATCOM
+export PATH=$WATCOM/binl:$PATH
+export EDPATH=$WATCOM/eddat
+export INCLUDE=$WATCOM/lh
+export LIB=$WATCOM/libl
+# ---------------------------------------------------------------------------
+```  
+after this , get WATCOM dir ADMIN .
 
-sudo apt-get install libx11-dev libgl1-mesa-dev libxcb1-dev libxcb-keysyms1-dev libxcb-xfixes0-dev
-======
+```sh
+sudo chmod -R 777 /usr/bin/WATCOM
+```
+----
+
+## X11 LIBs
+
+Just Wait
+
+NOTE ! libX11.a is not working in Open Watcom 1.9 , we need Compile libX11.a with Open Watcom .
+
 </details>
 
 ________

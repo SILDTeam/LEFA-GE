@@ -1,4 +1,6 @@
-V ```25.07.23``` 
+brazil format - DD.MM.YY  
+code Version ``01.08.23``  
+
 ##  <img src="web_Help_Res/LEFA_LOGO.png" width="40" height="40" />  LITHE ENGINE FOR ALL  
 
 <img src="web_Help_Res/Troll Face.ico" width="35" height="35" />yes, it's another render being developed in this world, and to make matters worse being created with limitations.
@@ -19,7 +21,22 @@ the code is being written in | C 90 and C++ 98
 - <img src="web_Help_Res/icons8-linux-96.png" width="25" height="25" />  [open-watcom-c-linux-1.9](http://openwatcom.org/ftp/install/open-watcom-c-linux-1.9)
 
 ________
-#### Install Watcom and Configure Project to linux info.
+
+### Windows Installation
+</div>
+  <details>
+   <summary> FOR WINDOWS </summary>  
+    
+### Fixe watcom OpenGL Syntax Error! 
+put OpenGl Modified / Fixed Files Incluse in [more_files](https://github.com/SILDTeam/LEFA-GE/tree/main/more_files)  
+
+  replace default WATCOM files  
+you need to place the files from the MORE FILES directory  inside the Open Watcom installation location  
+the default location is ``C:\WATCOM``  
+    
+</details>
+
+### Install Watcom and Configure Project to linux info.
 </div>
   <details>
    <summary> FOR LINUX  </summary>  
@@ -64,12 +81,9 @@ NOTE ! libX11.a is not working in Open Watcom 1.9 , we need Compile libX11.a wit
 </details>
 
 ________
-#### Fixe watcom OpenGL Syntax Error! 
-put OpenGl Modified / Fixed Files Incluse in [more_files](https://github.com/SILDTeam/LEFA-GE/tree/main/more_files)  
-  
 
-####  replace default WATCOM files  
-you need to place the files from the MORE FILES directory  inside the Open Watcom installation location  
-the default location is C:\WATCOM   
+
+
+ 
 
 

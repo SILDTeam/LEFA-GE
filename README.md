@@ -83,7 +83,7 @@ you need a script and define Watcom Files path to linux put the code in `.bashrc
 and now put the entire code below inside the .bashrc file, open the .bashrc and at the end of it put the following code.
 
 ```sh
-# Linux 32-bit shell script:
+# Open Watcom 1.9 Path Script:
 # ---------------------------------------------------------------------------
 export WATCOM=/usr/bin/WATCOM
 export PATH=$WATCOM/binl:$PATH

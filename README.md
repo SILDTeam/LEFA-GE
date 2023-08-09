@@ -14,7 +14,9 @@ the code is being written in | C 90 and C++ 98
   
 #### to compile you need  
 
- <img src="web_Help_Res/Watcom_mini.png" width="35" height="35" /> Open WATCOM 1.9  
+ <img src="web_Help_Res/Watcom_mini.png" width="35" height="35" /> Open Watcom 1.9  
+#### Open Watcom Downloads  
+
 - [<img src="web_Help_Res/windows_icon_aero.png" width="25" height="25" /> open-watcom-c-win32-1.9.exe](http://openwatcom.org/ftp/install/open-watcom-c-win32-1.9.exe)   
 
     

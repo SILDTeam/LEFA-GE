@@ -79,6 +79,10 @@ with administrator permissions, move the ``WATCOM`` directory to getting like th
 
 ### step 2  
 
+```sh
+nano ~/.bashrc
+```
+
 you need a script and define Watcom Files path to linux put the code in `.bashrc `   
 and now put the entire code below inside the .bashrc file, open the .bashrc and at the end of it put the following code.
 

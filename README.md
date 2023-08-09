@@ -22,7 +22,7 @@ the code is being written in | C 90 and C++ 98
 
 ________
 
-### Windows Installation
+### Windows after Install
 </div>
   <details>
    <summary> FOR WINDOWS </summary>  

@@ -50,6 +50,9 @@ the default location is ``C:\WATCOM``
   <details>
    <summary> FOR LINUX  </summary>  
     
+# NOTE ! 
+I am using Debian 12 , in case you are using another linux distribution , use some things as base
+
 ### step 1
 
 
@@ -63,11 +66,11 @@ in the directory where you downloaded the file `open-watcom-c-linux-1.9` put the
 unzip open-watcom-c-linux-1.9 -d WATCOM
 ```
 and will extract the files to the directory called ``WATCOM``   
-then you will move this directory to  
+
+after this process it is necessary to move this directory to   
 
 `` /usr/bin ``  
-  
-getting like this ` /usr/bin/WATCOM `   
+with administrator permissions, move the ``WATCOM`` directory to getting like this ` /usr/bin/WATCOM `   
 
 ### step 2  
 

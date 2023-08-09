@@ -45,7 +45,7 @@ the default location is ``C:\WATCOM``
 
 
 
-### Install Watcom and Configure Project for linux info.
+### Install Watcom and Configure Project for linux.
 </div>
   <details>
    <summary> FOR LINUX  </summary>  

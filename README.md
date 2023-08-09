@@ -33,7 +33,7 @@ ________
 put OpenGl Modified / Fixed Files Incluse in [more_Files/Windows](https://github.com/SILDTeam/LEFA-GE/tree/main/more_files/windows)  
 
   replace default WATCOM files  
-you need to place the files from the more_Files/windows directory  inside the Open Watcom installation location  
+you need to place the files from the ```more_Files/windows``` directory  inside the Open Watcom installation location  
 the default location is ``C:\WATCOM``  
     
 </details>

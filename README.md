@@ -38,14 +38,31 @@ the default location is ``C:\WATCOM``
     
 </details>
 
+
+
+
+
+
+
+
 ### Install Watcom and Configure Project to linux info.
 </div>
   <details>
    <summary> FOR LINUX  </summary>  
     
 ### step 1
-you need to extract open-watcom-c-linux-1.9 file  
-and put his files in a directory called WATCOM  
+
+
+you need to extract `open-watcom-c-linux-1.9` file  
+with unzip .
+
+you need to install unzip or something of your choice, but here is unzip.  
+
+in the directory where you downloaded the file `open-watcom-c-linux-1.9` put the following command  
+```sh
+unzip open-watcom-c-linux-1.9 -d WATCOM
+```
+and will extract the files to the directory called ``WATCOM``   
 then you will move this directory to  
 
 `` /usr/bin ``  

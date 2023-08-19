@@ -11,7 +11,7 @@ this code is just the beginning/studies/research of what this could be in the fu
 the code is totally poorly optimized
 
 ### PC Require
-I386 CPU 32X sse2  
+I386 CPU SSE2  
 21 MB RAM  
 500 kb Disc for source code  
 OpenGl 2.1 or more  

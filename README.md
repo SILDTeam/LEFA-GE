@@ -9,6 +9,13 @@ the project is being done in another way  ...
 
 this code is just the beginning/studies/research of what this could be in the future  
 the code is totally poorly optimized
+
+### PC Require
+I386 CPU 32X sse2
+21 MB RAM
+500 kb Disc for source code
+OpenGl 2.1 or more
+
 ## what you need, to build.
 the code is being written in | C 90 and C++ 98  
   

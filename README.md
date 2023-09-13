@@ -10,9 +10,14 @@ the project is being done in another way  ...
 this code is just the beginning/studies/research of what this could be in the future  
 the code is totally poorly optimized
 
-### PC Require
-I386 CPU SSE2  
-21 MB RAM  
+### Requirements to compile or run
+##### due to the 6r optimization option, optimization for processors such as Pentium PRO or higher 
+I686 SSE2 
+
+##### This amount of RAM is caused by poor code optimization, more specifically in the loop system
+21 MB RAM
+
+##### the code is very small, of course there is very little, for now
 500 kb Disc for source code  
 OpenGl 2.1 or more  
 

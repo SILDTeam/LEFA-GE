@@ -14,6 +14,9 @@ the code is totally poorly optimized
 ##### due to the 6r optimization option, optimization for processors such as Pentium PRO or higher 
 I686 SSE2 
 
+
+but you can choose to compile for I386 too, but the whole project is being developed for computer base between 2006 and 2008
+
 ##### This amount of RAM is caused by poor code optimization, more specifically in the loop system
 21 MB RAM
 

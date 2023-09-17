@@ -25,7 +25,7 @@ but you can choose to compile for I386 too, but the whole project is being devel
 OpenGl 2.1 or more  
 
 ## what you need, to build.
-the code is being written in | C 90 and C++ 98  
+the code is being written in | C 89 and C++ 98  
   
 #### to compile you need  
 

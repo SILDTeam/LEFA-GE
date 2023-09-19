@@ -5,7 +5,7 @@ code Version ``01.08.23``
 
 <img src="web_Help_Res/Troll Face.ico" width="35" height="35" />yes, it's another render being developed in this world, and to make matters worse being created with limitations.
 
-the project is being done in another way  ...  
+This project is being done by a beginner programmer, who has never had experience in game programming before.   
 
 this code is just the beginning/studies/research of what this could be in the future  
 the code is totally poorly optimized

@@ -6,7 +6,7 @@
 #include<stdlib.h>
 #include<unistd.h>
 
-void ifGameConfigNotExist(){
+static void ifGameConfigNotExist(){
             //char *title = "Error!";
         //char *message = "a Error! user Config Not found \n"
                         //"the program will automatically \n"

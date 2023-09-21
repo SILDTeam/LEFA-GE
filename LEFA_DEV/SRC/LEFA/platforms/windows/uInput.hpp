@@ -10,21 +10,24 @@ bool keyInput(int key);
 struct KeyState {
     bool isActive;
     bool isReleased;
-    int mouseX; // Adicionado para armazenar a coordenada x do mouse
-    int mouseY; // Adicionado para armazenar a coordenada y do mouse
-    bool isSinglePress; // Nova variável para indicar se o botão deve ser pressionado apenas uma vez
+    int  mouseX;
+    int  mouseY;
+    bool isSinglePress;
 };
 
 
 enum keyMaps {
     PRESS_STATE = 0x8000, //is not a Key
-    //Mouse
+
+
+//Mouse
     KEY_MS1  = 0x01,   //Left button
     KEY_MS2  = 0x02,   //Right button
     KEY_MS3  = 0x04,   //Middle button
   //KEY_MS4  = 0000,   //otherbuttons
   //KEY_MS5  = 0000,   //otherbuttons
-    //Keyboard
+
+//Keyboard
     //Special Keys
     KEY_ESC  = 0x1B,   //Escape
     KEY_F1   = 0x70,   // F1
@@ -42,7 +45,7 @@ enum keyMaps {
     KEY_BSPC = 0x08,   // Backspace
     KEY_TAB  = 0x09,   // TAB Key
     KEY_CPSL = 0x14,   // Caps lock
-    KEY_SHFT = 0x10,   // Shift Key
+    KEY_SHIFT = 0x10,   // Shift Key
     KEY_CTRL = 0x11,   // Control Key
     KEY_ALT  = 0x12,   // Alt Keys
     KEY_SPC  = 0x20,   // Space Key

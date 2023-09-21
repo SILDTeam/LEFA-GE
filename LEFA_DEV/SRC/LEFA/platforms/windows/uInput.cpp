@@ -1,3 +1,6 @@
+/*Open Lefa Project
+2023*/
+
 //User Input 
 #include"windowSystem.hpp";
 #include"uInput.hpp";
@@ -18,7 +21,6 @@ extern int windowHeight;
 
 void processInput()
 {
-
 }
 
 void setInputEnabled(bool enabled)
@@ -30,10 +32,9 @@ bool keyInput(int key)
 {
     if (!inputEnabled)
     {
-        return false; // Se o processamento das teclas estiver desabilitado, retorna falso
+        return false;
     }
 
-    // Obter o estado do botão usando GetAsyncKeyState
     return GetAsyncKeyState(key) & PRESS_STATE;
 }
 
@@ -61,76 +62,13 @@ void mouseInput()
         {
             lastMouseX = mousePos.x;
             lastMouseY = mousePos.y;
-            printf("Mouse Pos: x = %d, y = %d\n", lastMouseX, lastMouseY);
+            //printf("Mouse Pos: x = %d, y = %d\n", lastMouseX, lastMouseY);
         }
        }
     }
 }
 
 
-
-/*
-void mouseInput()
-{
-    // Obter as coordenadas x e y do mouse em relação à tela
-    POINT mousePos;
-    GetCursorPos(&mousePos);
-
-    // Converter as coordenadas para coordenadas relativas à janela
-    ScreenToClient(hWnd, &mousePos);
-
-    // Verificar se houve movimento do mouse
-    static int lastMouseX = 0;
-    static int lastMouseY = 0;
-    if (mousePos.x != lastMouseX || mousePos.y != lastMouseY)
-    {
-        lastMouseX = mousePos.x;
-        lastMouseY = mousePos.y;
-        printf("Mouse Pos: x = %d, y = %d\n", lastMouseX, lastMouseY);
-    }
-}
-*/
-
-
-
-/*
-void processInput()
-{
-    if (GetAsyncKeyState(0x1B) & 0x8000)
-    {
-        printf("Kill_Program! \n");
-        exit(0);
-    }
-    if (keyStates['E'].isPressed) {
-        isSomethingChanged = true;
-    }
-}
-*/
-
-/*
-void processInput()
-{
-    MSG msg;
-    while (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
-    {
-        if (msg.message == WM_QUIT)
-        {
-            isRunning = false;
-            break;
-        }
-
-        TranslateMessage(&msg);
-        DispatchMessage(&msg);
-    }
-
-    // Implemente aqui a lógica para processar as teclas pressionadas, movimento do mouse, etc.
-    // Por exemplo:
-    if (GetAsyncKeyState(VK_ESCAPE) & 0x8000)
-    {
-        isRunning = false;
-    }
-}
-*/
 
 /*
 

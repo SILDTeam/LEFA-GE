@@ -16,7 +16,7 @@ void HideHUDConsole(){
 }
 */
 
-void interactConsole()
+static void interactConsole()
 {
     char command[100];
     
@@ -37,7 +37,7 @@ void interactConsole()
     }
 }
 
-void ShowConsoleWindow() 
+static void ShowConsoleWindow() 
 {
     HMODULE hModule = GetModuleHandle("kernel32.dll");
     GetConsoleWindowPtr pGetConsoleWindow = (GetConsoleWindowPtr)GetProcAddress(hModule, "GetConsoleWindow");
@@ -48,7 +48,7 @@ void ShowConsoleWindow()
     }
 }
 
-void HideConsoleWindow() {
+static void HideConsoleWindow() {
     HMODULE hModule = GetModuleHandle("kernel32.dll");
     GetConsoleWindowPtr pGetConsoleWindow = (GetConsoleWindowPtr)GetProcAddress(hModule, "GetConsoleWindow");
 

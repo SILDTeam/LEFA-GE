@@ -1,19 +1,17 @@
 #include<stdio.h>
 #include<time.h>
 #include<string.h>
-#include<stdarg.h>
 
-/*
-#define ANSI_COLOR_RED     "\x1b[31m" 
-#define ANSI_COLOR_GREEN   "\x1b[32m" 
-#define ANSI_COLOR_YELLOW  "\x1b[33m" 
-#define ANSI_COLOR_BLUE    "\x1b[34m" 
-#define ANSI_COLOR_MAGENTA "\x1b[35m" 
-#define ANSI_COLOR_CYAN    "\x1b[36m" 
-#define ANSI_COLOR_RESET   "\x1b[0m" 
-*/
+#define ANSI_COLOR_RED     "\x1b[31m"
+#define ANSI_COLOR_GREEN   "\x1b[32m"
+#define ANSI_COLOR_YELLOW  "\x1b[33m"
+#define ANSI_COLOR_BLUE    "\x1b[34m"
+#define ANSI_COLOR_MAGENTA "\x1b[35m"
+#define ANSI_COLOR_CYAN    "\x1b[36m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
 
-void printLine(const char* format, ...)
+
+static void printLine(const char* format, ...)
 {
     va_list args;
     va_start(args, format);
@@ -24,19 +22,19 @@ void printLine(const char* format, ...)
 
 
 
-void gameVersion(const char* gameName, const char* version)
+static void gameVersion(const char* gameName, const char* version)
 {
-    printLine("%s / %s");
+    printLine("%s / %s", gameName, version);
 }
 
-void engineVersion()
+static void engineVersion()
 {
-    printLine("LEFA Build: 25.07.23");
+    printLine("LEFA Build: 25.07.23", ANSI_COLOR_GREEN);
 }
 
 
 //IGNORE
-void meme()
+static void meme()
 {
 
 	printf(" (\\_/)\n"
@@ -46,25 +44,25 @@ void meme()
 }
 
 
-void gladLoadGLERROR() 
+static void gladLoadGLERROR() 
     {
     printLine("Failed to initialize GLAD\n");
     }
 
 
-void vertexERROR()
+static void vertexERROR()
     {
     printLine("Vertex shader compilation failed\n");
     }
 
 
-void fragERROR()
+static void fragERROR()
     {
     printLine("Fragment shader compilation failed\n");
     }
 
     
-void shaderLinkERROR()
+static void shaderLinkERROR()
     {
     printLine("Shader program linking failed\n");
     }

@@ -2,34 +2,35 @@
     2022-2023*/
 
 //Systems
-#ifdef WIN32
-    #define WIN32_LEAN_AND_MEAN
-    #include"lefa/platforms/windows_header.h";
+#ifdef _WIN32
+#   define WIN32_LEAN_AND_MEAN
+#   include"lefa/platforms/windows_header.h";
 #endif //WIN32
 
-/*
-#ifdef LINUX
-    #include<dlfcn.h>
-    #include"lefa/platforms/linux_header.h";
+
+#ifdef _LINUX
+#   include<dlfcn.h>
+#   include"lefa/platforms/linux_header.h";
 #endif
-*/
 
+// C/C++ LIBS
+#ifdef IN_CLIBS
+#   include<iostream>
+#   include<stdio.h> //fopen
+#   include<stdlib.h>
+#   include<string.h>
+#endif
 
-//  C / C++ LIBS
+//Engine Files
 
-//#include<iostream>
-//#include<stdio.h> //fopen
-//#include<stdlib.h>
-//#include<string.h>
+    //OpenGL Loader GLAD
+ #include"lefa/gl_manager.h";
+  
+//engine includes 
 
-// engine libs
-
-//OpenGL Loader GLAD
-#include"lefa/render/glad/glad_gl.H";
-//
-#include"lefa/engineArgs.h";
-#include"lefa/file_manager.h";
-#include"lefa/console_msg.h";
+ #include"lefa/engineArgs.h";
+ #include"lefa/file_manager.h";
+ #include"lefa/console_msg.h";
 
 bool isSomethingChanged = false;
 

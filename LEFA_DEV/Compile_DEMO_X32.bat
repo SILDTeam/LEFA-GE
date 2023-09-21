@@ -86,7 +86,7 @@ echo """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 echo.
 echo  _________WINDOWSYSTEM.CPP___________________________________
 echo /____________________________________________________________\
-     @%cpp% /6r -fp6 -ol -oo -et lefa/platforms/windows/windowSystem.cpp -Fo="%EXIT%/windowSystem" ^
+     @%cpp% /6r -fp6 -ol -oo lefa/platforms/windows/windowSystem.cpp -Fo="%EXIT%/windowSystem" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -95,7 +95,7 @@ echo.
 echo.
 echo  ____________UINPUT.CPP______________________________________
 echo /____________________________________________________________\
-     @%cpp% /6r -fp6 -ol -oo -et lefa/platforms/windows/uInput.cpp -Fo="%EXIT%/uInput" ^
+     @%cpp% /6r -fp6 -ol -oo lefa/platforms/windows/uInput.cpp -Fo="%EXIT%/uInput" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -105,7 +105,7 @@ echo.
 echo.
 echo  ____________CUSTOMCUR.C_____________________________________
 echo /____________________________________________________________\
-      @%cpp% /6r -fp6 -ol -oo -et lefa/platforms/windows/customCur.c -Fo="%EXIT%/customCur" ^
+      @%cpp% /6r -fp6 -ol -oo lefa/platforms/windows/customCur.c -Fo="%EXIT%/customCur" ^
       2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -114,7 +114,7 @@ echo.
 echo.
 echo  __________ENGINEARGS.C______________________________________
 echo /____________________________________________________________\
-     @%cpp% -DWIN32 /6r -oo -fp6 -et lefa/Extension/engineArgs.c -Fo="%EXIT%/engineArgs" ^
+     @%cpp% -DWIN32 /6r -oo -fp6 lefa/Extension/engineArgs.c -Fo="%EXIT%/engineArgs" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -126,7 +126,7 @@ echo.
 echo.
 echo  ___________MATRIX44.C________________________________________
 echo /____________________________________________________________\
-     @%cpp% /6r lefa/Math/Matrix44.c -fp6 -ol -oo -et -Fo="%EXIT%/Matrix44" ^
+     @%cpp% /6r lefa/Math/Matrix44.c -fp6 -ol -oo -Fo="%EXIT%/Matrix44" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -139,7 +139,7 @@ echo.
 echo.
 echo  ___________VECTOR2.C________________________________________
 echo /____________________________________________________________\
-     @%cpp% /6r lefa/Math/Vector2.c -fp6 -ol -oo -et -Fo="%EXIT%/Vector2" ^
+     @%cpp% /6r lefa/Math/Vector2.c -fp6 -ol -oo -Fo="%EXIT%/Vector2" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -150,7 +150,7 @@ echo.
 echo.
 echo  ___________VECTOR3.C________________________________________
 echo /____________________________________________________________\
-     @%cpp% /6r lefa/Math/Vector3.c -fp6 -ol -oo -et -Fo="%EXIT%/Vector3" ^
+     @%cpp% /6r lefa/Math/Vector3.c -fp6 -ol -oo -Fo="%EXIT%/Vector3" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -162,7 +162,7 @@ echo.
 echo.
 echo  ___________TRANSFORM.C______________________________________
 echo /____________________________________________________________\
-     @%cpp% /6r lefa/Math/Transform.c -fp6 -ol -oo -et -Fo="%EXIT%/Transform" ^
+     @%cpp% /6r lefa/Math/Transform.c -fp6 -ol -oo -Fo="%EXIT%/Transform" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -174,7 +174,7 @@ echo.
 echo.
 echo  ___________QUATERNION.C_____________________________________
 echo /____________________________________________________________\
-     @%cpp% /6r lefa/Math/Quaternion.c -fp6 -ol -oo -et -Fo="%EXIT%/Quaternion" ^
+     @%cpp% /6r lefa/Math/Quaternion.c -fp6 -ol -oo -Fo="%EXIT%/Quaternion" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -187,7 +187,7 @@ echo.
 echo.
 echo  ___________GLAD_GL.C________________________________________
 echo /____________________________________________________________\
-     @%cpp% /6r lefa/render/OpenGL/GLAD_GL.C -fp6 -ol -oo -et -Fo="%EXIT%/glad" ^
+     @%cpp% /6r lefa/render/OpenGL/GLAD_GL.C -fp6 -ol -oo -Fo="%EXIT%/glad" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/

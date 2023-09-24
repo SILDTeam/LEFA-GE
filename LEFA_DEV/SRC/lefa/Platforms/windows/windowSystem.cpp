@@ -5,7 +5,7 @@
 #include"uInput.hpp";
 //
 //#include<windows.h>
-#include<GL/GL.H>
+//#include<GL/GL.H> //sorry !
 #include<cstdio>
 #include"customCur.h";
 

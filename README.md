@@ -11,6 +11,11 @@ this code is just the beginning/studies/research of what this could be in the fu
 the code is totally poorly optimized
 
 ### Requirements to compile or run
+
+
+I tested it on Windows XP SP3 X32 and it worked correctly.  
+
+
 ##### due to the 6r optimization option, optimization for processors such as Pentium PRO or higher 
 I686 SSE2 _ Intel P6 with SIMD SSE2 
 

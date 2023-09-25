@@ -12,7 +12,7 @@ the code is totally poorly optimized
 
 ### Requirements to compile or run
 ##### due to the 6r optimization option, optimization for processors such as Pentium PRO or higher 
-I686 SSE2 
+I686 SSE2 _ Intel P6 with SIMD SSE2 
 
 
 but you can choose to compile for I386 too, but the whole project is being developed for computer base between 2006 and 2008

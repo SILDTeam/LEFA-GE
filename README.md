@@ -1,4 +1,4 @@
-brazil format - DD.MM.YY  
+DD.MM.YY   
 code Version ``01.08.23``  
 
 ##  <img src="web_Help_Res/LEFA_LOGO.png" width="40" height="40" />  LITHE ENGINE FOR ALL  

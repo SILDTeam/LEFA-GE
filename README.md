@@ -29,8 +29,8 @@ the loop is acting at its full power without any limiter making it consume more 
 
 
 
-windows XP : 4 MB
-windows 11 : 21 MB RAM
+windows XP : 4 MB  
+windows 11 : 21 MB RAM  
 
 ##### the code is very small, of course there is very little, for now
 500 kb Disc for source code  

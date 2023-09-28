@@ -22,8 +22,15 @@ I686 SSE2 _ Intel P6 with SIMD SSE2
 
 but you can choose to compile for I386 too, but the whole project is being developed for computer base between 2006 and 2008
 
-##### This amount of RAM is caused by poor code optimization, more specifically in the loop system
-21 MB RAM
+##### Even though the code is poorly optimized it is acting well, the problem is the cpu consumption due to the loop and the lack of control over the FPS limit
+
+
+the loop is acting at its full power without any limiter making it consume more cpu than it should  
+
+
+
+windows XP : 4 MB
+windows 11 : 21 MB RAM
 
 ##### the code is very small, of course there is very little, for now
 500 kb Disc for source code  

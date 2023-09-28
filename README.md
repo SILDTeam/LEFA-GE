@@ -13,29 +13,48 @@ the code is totally poorly optimized
 ### Requirements to compile or run
 
 
-I tested it on Windows XP SP3 X32 and it worked correctly.  
+System   
+Listed here are systems I tested the program on  
 
+Windows :  
+  
+_  Windows XP SP3  x32  worked correctly  
+_  Windows 11 Home x64  worked correctly  
 
-##### due to the 6r optimization option, optimization for processors such as Pentium PRO or higher 
-I686 SSE2 _ Intel P6 with SIMD SSE2 
+Linux  
+_  Debian 12  x64  did not work, there were linking errors with X11  
+  ______________ 
 
+CPU  
+ Minimum  
+  I386 with SSE2 or Higher
+ 
+Recommended  
+  I686 = Intel P6 with SSE2 - or Higher  
+  
+ due to the 6r optimization option, optimization for processors such as Pentium PRO or higher  
 
-but you can choose to compile for I386 too, but the whole project is being developed for computer base between 2006 and 2008
-
-##### Even though the code is poorly optimized it is acting well, the problem is the cpu consumption due to the loop and the lack of control over the FPS limit
-
-
-the loop is acting at its full power without any limiter making it consume more cpu than it should  
-
+___________
 
 RAM  
+  Basic Engine  
+  windows XP : 4 MB   
+  windows 11 : 21 MB  
 
-windows XP : 4 MB  
-windows 11 : 21 MB    
+___________
+DISC   
+ the code is very small, of course there is very little, for now  
+500 kb Disc for source code   
 
-##### the code is very small, of course there is very little, for now
-500 kb Disc for source code  
-OpenGl 2.1 or more  
+_____
+Render  
+OpenGL 2.1 or Higher  
+
+____
+
+Even though the code is poorly optimized it is acting well, the problem is the cpu consumption due to the loop and the lack of control over the FPS limit  
+the loop is acting at its full power without any limiter making it consume more cpu than it should  
+
 
 ## what you need, to build.
 the code is being written in | C 89 and C++ 98  

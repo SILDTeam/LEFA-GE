@@ -28,9 +28,10 @@ but you can choose to compile for I386 too, but the whole project is being devel
 the loop is acting at its full power without any limiter making it consume more cpu than it should  
 
 
+RAM  
 
 windows XP : 4 MB  
-windows 11 : 21 MB RAM  
+windows 11 : 21 MB    
 
 ##### the code is very small, of course there is very little, for now
 500 kb Disc for source code  

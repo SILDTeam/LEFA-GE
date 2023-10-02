@@ -10,6 +10,10 @@ This project is being done by a beginner programmer, who has never had experienc
 this code is just the beginning/studies/research of what this could be in the future  
 the code is totally poorly optimized
 
+The advancement of the engine and the features in it are added according to what I need.  
+
+example :  if I need fast loading of textures, this is an addition to the engine 
+
 ### Requirements to compile or run
 
 

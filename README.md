@@ -34,10 +34,12 @@ _______
 ## thank you for third party libraries  
 
 [GLAD](https://github.com/Dav1dde/glad)  as the best loader of khronos libraries  
+
 [LODEPNG](https://github.com/lvandeve/lodepng)  as a great encoder and decoder  
+
 [HYPATIA](https://github.com/dagostinelli/hypatia) mathematical library that I'm still studying, but it looks great
 
-
+_______
 
 ### Requirements to compile or run
 

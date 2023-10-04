@@ -1,5 +1,16 @@
 DD.MM.YY   
-code Version ``01.08.23``  
+code Version ``04.10.23``  
+
+</div>
+  <details>
+   <summary> latest changes </summary>  
+    
+03/10/23 and 04/10/23  
+much of the code was changed to support C89, now the window system, input system, cursor system can be included using C89  
+added glad_vulkan so that Vulkan API can be included in the project in the future  
+    
+</details>
+
 
 ##  <img src="web_Help_Res/LEFA_LOGO.png" width="40" height="40" />  LITHE ENGINE FOR ALL  
 

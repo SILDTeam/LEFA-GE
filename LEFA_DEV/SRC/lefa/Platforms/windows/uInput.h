@@ -1,24 +1,30 @@
+/*Open LEFA : User Input
+2023*/
+
 #ifndef UINPUT_HPP
 #define UINPUT_HPP
 
-void setInputEnabled(bool enabled);
+#define true 1
+#define false 0
+typedef int bool_;
+
+void setInputEnabled(int enabled);
 
 void processInput();
 void mouseInput();
-bool keyInput(int key);
+int keyInput(int key);
 
 struct KeyState {
-    bool isActive;
-    bool isReleased;
+    bool_ isActive;
+    bool_ isReleased;
     int  mouseX;
     int  mouseY;
-    bool isSinglePress;
+    bool_ isSinglePress;
 };
 
 
 enum keyMaps {
     PRESS_STATE = 0x8000, //is not a Key
-
 
 //Mouse
     KEY_MS1  = 0x01,   //Left button
@@ -100,8 +106,9 @@ enum keyMaps {
 
 };
 
-extern KeyState keyStates[256];
-extern KeyState previousKeyStates[256]; // Variável para armazenar os estados anteriores dos botões
+//extern KeyState keyStates[256];
+//extern KeyState previousKeyStates[256]; // Variável para armazenar os estados anteriores dos botões
 
 
 #endif //UINPUT_HPP
+

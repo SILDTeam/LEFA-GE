@@ -1,3 +1,6 @@
+/*Open LEFA : Custom Cursor
+2023*/
+
 #ifndef CUSTOMCUR_H
 #define CUSTOMCUR_H
 #include<windows.h>
@@ -32,7 +35,7 @@ enum CursorType {
 }; 
 
 
-void setCursorType(CursorType type);
+void setCursorType(enum CursorType type);
 
 /*
 enum CursorType {
@@ -63,3 +66,4 @@ enum CursorType {
 
 
 #endif //CUSTOMCUR_H
+

@@ -2,15 +2,17 @@
 2023*/
 
 //User Input 
-#include"windowSystem.hpp";
-#include"uInput.hpp";
+#include"windowSystem.h";
+#include"uInput.h";
+/*Open LEFA : User Input
+2023*/
 
 #include<windows.h>
 #include<stdio.h>
 #include<stdbool.h>
-#include<iostream.h>
+//#include<iostream.h>
 
-extern HWND hWnd;
+extern HWND hwnd;
 
 bool inputEnabled = true;
 
@@ -23,12 +25,22 @@ void processInput()
 {
 }
 
-void setInputEnabled(bool enabled)
+void setInputEnabled(int enabled)
 {
+    if (enabled == true) {
+        // Habilitar a entrada
+    } 
+    else if (enabled == false) 
+    {
+        // Desabilitar a entrada
+    } else {
+        // Tratar caso seja um valor inválido (opcional)
+    }
+
     inputEnabled = enabled;
 }
 
-bool keyInput(int key)
+int keyInput(int key)
 {
     if (!inputEnabled)
     {
@@ -40,6 +52,7 @@ bool keyInput(int key)
 
 void mouseInput()
 {
+    RECT windowRect;
     if (inputEnabled)
     {
         // Obter as coordenadas x e y do mouse em relação à tela
@@ -47,10 +60,9 @@ void mouseInput()
         GetCursorPos(&mousePos);
 
         // Converter as coordenadas para coordenadas relativas à janela
-        ScreenToClient(hWnd, &mousePos);
+        ScreenToClient(hwnd, &mousePos);
 
-        RECT windowRect;
-    	GetClientRect(hWnd, &windowRect);
+    	GetClientRect(hwnd, &windowRect);
 
     	if (PtInRect(&windowRect, mousePos))
     {

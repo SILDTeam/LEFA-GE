@@ -1,4 +1,5 @@
-#include<windows.h>
+/*Open LEFA : Custom Cursor
+2023*/
 
 #include"customCur.h";
 
@@ -6,9 +7,9 @@ extern HCURSOR currentCursor;
 extern HCURSOR cursor;
 
 // Definição da variável global requestedCursor
-static CursorType requestedCursor; //Var Cursor
+static enum CursorType requestedCursor; //Var Cursor
 
-void setCursorType(CursorType type) {
+void setCursorType(enum CursorType type) {
     requestedCursor = type;
     switch (type) {
         case CenterArrow:

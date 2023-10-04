@@ -4,14 +4,16 @@
 #include<windows.h>
 
 //OpenGL 
-#	pragma comment(lib, "OpenGL32.lib");
-#	pragma comment(lib, "GLU32.lib");
+ #pragma comment(lib, "OpenGL32.lib");
+ #pragma comment(lib, "GLU32.lib");
 
-	//Windows
-#	pragma comment(lib, "winmm.lib");
+//Windows
+ #pragma comment(lib, "winmm.lib");
 
 #include"windows/console_util.h"; //necessary
-#include"windows/windowSystem.hpp"; //necessary
-#include"windows/uInput.hpp"; //necessary
+#include"windows/windowSystem.h"; //necessary
+#include"windows/uInput.h"; //necessary
 
 #include"windows/customCur.h"; //custom / necessary
+
+

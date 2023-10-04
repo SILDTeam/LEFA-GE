@@ -4,14 +4,10 @@
 #include<windows.h>
 #include<string.h>
 
-//static int FRAME_DELAY_MS = 10; // Defina o valor desejado para o atraso entre quadros (aproximadamente 60 FPS)
+ #define true 1
+ #define false 0
 
-
-//static int frameCount = 0;
-//static int fps = 0;
-//static double lastTime = 0.0;
-
-extern bool isRunning; //game running check
+extern int isRunning; //game running check
 
 void engineCreateWindow(int width, int height);
 

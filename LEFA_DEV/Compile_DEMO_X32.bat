@@ -20,9 +20,8 @@ echo """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 echo.
 echo.
 
-setlocal enabledelayedexpansion
+REM setlocal enabledelayedexpansion  REM delayed variable expansion / Problem Disable ! char
 
-REM LEFA Window Demo
 
 REM IGNORE COMMAND  2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 
@@ -35,19 +34,40 @@ REM   use stack-based argument passing conventions
 REM -fp6 Optimized Option For Binary Precision / generate in-line 80x87 instructions optimized for Pentium Pro processor
 REM -et Get Debug Functions()
 
+REM SET DIR_LEFA=lefa
+SET DIR_GAME=lefaDemos/
+SET DIR_OUTPUT=lefaDEMO/
+REM program object , and build files.
+SET EXIT=../%DIR_OUTPUT%/obj
+SET buildout=../
+SET exename=poly
 
-if not exist "EXT" (
-    mkdir "EXT"
-    echo Direcorty 'EXT'created with sucess.
+for /r "%DIR_OUTPUT%/obj" %%f in (*.obj) do del "%%f"
+
+
+REM Create DIR
+REM _________________________________________
+if not exist "%DIR_OUTPUT%" (
+    mkdir "%DIR_OUTPUT%"
+    echo Direcorty '%DIR_OUTPUT%'created with sucess.
 ) else (
     echo.
 )
+REM _________________________________________
+REM _________________________________________
+if not exist "%DIR_OUTPUT%/obj" (
+    mkdir "%DIR_OUTPUT%/obj"
+    echo Direcorty '%DIR_OUTPUT%/obj'created with sucess.
+) else (
+    echo.
+)
+REM _________________________________________
+
 
 REM Time /t >  build_out.txt
 REM Date /t >> build_out.txt
 REM echo last_compilation >> build_out.txt
 
-SET EXIT=../EXT/
 
 
 REM Define Compiler. 
@@ -65,14 +85,14 @@ REM set cpp=wpp64 REM tests
 REM ______________________________
 
 
-cd src
+cd SRC
 echo.
 echo Demo or game Source
 echo ___________________________________________________________________________________________________________________
 echo.
 echo  __________(windowPoly.CPP)________________________________________
 echo /____________________________________________________________\
- 	 @%cpp% -DWIN32 /6r -fp6 lefaDemos/windowPoly.cpp -Fo="../EXT/main"  ^
+ 	 @%cpp% -DWIN32 /6r -fp6 lefaDemos/windowPoly.cpp -Fo="%EXIT%/main"  ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -84,18 +104,18 @@ echo """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 echo " Engine Files                                                                                                        "
 echo """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""/
 echo.
-echo  _________WINDOWSYSTEM.CPP___________________________________
+echo  _________WINDOWSYSTEM.C____________________________________
 echo /____________________________________________________________\
-     @%cpp% /6r -fp6 -ol -oo lefa/platforms/windows/windowSystem.cpp -Fo="%EXIT%/windowSystem" ^
+     @%cpp% /6r -fp6 -ol -oo "lefa/platforms/windows/windowSystem.c" -Fo="%EXIT%/windowSystem" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
 echo.
 echo.
 echo.
-echo  ____________UINPUT.CPP______________________________________
+echo  ____________UINPUT.C______________________________________
 echo /____________________________________________________________\
-     @%cpp% /6r -fp6 -ol -oo lefa/platforms/windows/uInput.cpp -Fo="%EXIT%/uInput" ^
+     @%cpp% /6r -fp6 -ol -oo "lefa/platforms/windows/uInput.c" -Fo="%EXIT%/uInput" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -105,7 +125,7 @@ echo.
 echo.
 echo  ____________CUSTOMCUR.C_____________________________________
 echo /____________________________________________________________\
-      @%cpp% /6r -fp6 -ol -oo lefa/platforms/windows/customCur.c -Fo="%EXIT%/customCur" ^
+      @%cpp% /6r -fp6 -ol -oo "lefa/platforms/windows/customCur.c" -Fo="%EXIT%/customCur" ^
       2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -114,71 +134,10 @@ echo.
 echo.
 echo  __________ENGINEARGS.C______________________________________
 echo /____________________________________________________________\
-     @%cpp% -DWIN32 /6r -oo -fp6 lefa/Extension/engineArgs.c -Fo="%EXIT%/engineArgs" ^
+     @%cpp% -D_WIN32 /6r -oo -ol -fp6 "lefa/Extension/engineArgs.c" -Fo="%EXIT%/engineArgs" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
-echo  ___________MATRIX44.C________________________________________
-echo /____________________________________________________________\
-     @%cpp% /6r lefa/Math/Matrix44.c -fp6 -ol -oo -Fo="%EXIT%/Matrix44" ^
-     2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
-echo ______________________________________________________________
-echo \____________________________________________________________/
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
-echo  ___________VECTOR2.C________________________________________
-echo /____________________________________________________________\
-     @%cpp% /6r lefa/Math/Vector2.c -fp6 -ol -oo -Fo="%EXIT%/Vector2" ^
-     2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
-echo ______________________________________________________________
-echo \____________________________________________________________/
-echo.
-echo.
-echo.
-echo.
-echo.
-echo  ___________VECTOR3.C________________________________________
-echo /____________________________________________________________\
-     @%cpp% /6r lefa/Math/Vector3.c -fp6 -ol -oo -Fo="%EXIT%/Vector3" ^
-     2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
-echo ______________________________________________________________
-echo \____________________________________________________________/
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
-echo  ___________TRANSFORM.C______________________________________
-echo /____________________________________________________________\
-     @%cpp% /6r lefa/Math/Transform.c -fp6 -ol -oo -Fo="%EXIT%/Transform" ^
-     2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
-echo ______________________________________________________________
-echo \____________________________________________________________/
-echo.
-echo.
-echo.
-echo.
-echo.
-echo.
-echo  ___________QUATERNION.C_____________________________________
-echo /____________________________________________________________\
-     @%cpp% /6r lefa/Math/Quaternion.c -fp6 -ol -oo -Fo="%EXIT%/Quaternion" ^
-     2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
-echo ______________________________________________________________
-echo \____________________________________________________________/
-echo.
 echo.
 echo.
 echo.
@@ -187,7 +146,7 @@ echo.
 echo.
 echo  ___________GLAD_GL.C________________________________________
 echo /____________________________________________________________\
-     @%cpp% /6r lefa/render/OpenGL/GLAD_GL.C -fp6 -ol -oo -Fo="%EXIT%/glad" ^
+     @%cpp% /6r -fp6 -ol -oo "lefa/ThirdParty/glad/OpenGL/glad_gl.c" -Fo="%EXIT%/glad_gl" ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -198,7 +157,7 @@ echo.
 echo.
 echo  __________(RESOURCE)________________________________________
 echo /____________________________________________________________\
-     @wrc lefaDemos/resources/win32.rc -r -fo="../EXT/win32.res"   ^
+     @wrc lefaDemos/resources/win32.rc -r -fo="%EXIT%/win32.res"   ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ______________________________________________________________
 echo \____________________________________________________________/
@@ -206,24 +165,28 @@ echo.
 echo.
 echo.
 cd ../
-cd EXT
+cd %DIR_OUTPUT%/obj
 echo.
 echo.
 echo  __________(Linker)________________________________________
 echo /__________________________________________________________\
-     @wlink option resource 'win32.res' name LEFA.exe file *.obj ^
+     @wlink option resource 'win32.res' name %exename%.exe file *.obj ^
      2>&1 | findstr /V /C:"Open Watcom" /C:"Portions" /C:"See"
 echo ____________________________________________________________
 echo \__________________________________________________________/
 
+REM move the bin file system
+REM _________________________________________
+if exist *.exe (
+    move *.exe "%buildout%" | echo DONE !
+) else (
+    echo BUILD FAIL !
+)
+REM _________________________________________
 
-	REM wpp386 main.cpp -i="c:\WATCOM19/h;c:\WATCOM19/h/nt" -w4-e25 -zq -od-d2 -6r -bt=nt -fo=obj -mf-xs -xr
-	REM wrc res.rc -bt=nt -dWIN32 -d_WIN32 -d__NT__ -i=";C:\WATCOM19/h;C:WATCOM19/h/nt"-q -ad -r -fo=res.res
-	REM wlink name lefa_test d all sys nt_win op m op maxe=25 op q op symf main
+
 echo.
 echo _
 
-del *.obj 
-del *.res 
 
 pause

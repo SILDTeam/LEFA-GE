@@ -4,3 +4,4 @@
 void ToggleConsoleWindow(int argc, char** argv);
 
 #endif // ENGINE_ARGS_H
+

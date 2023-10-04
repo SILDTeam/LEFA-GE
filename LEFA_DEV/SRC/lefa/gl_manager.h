@@ -3,40 +3,12 @@
 
 
 //glad_gl version
-#ifdef GL_1_0
-#   define GL_VERSION_1_0
-#   define NO_SHADER
-#endif
-
-#ifdef GL_1_1
-#   define GL_VERSION_1_1
-#   define NO_SHADER
-#endif
-
-#ifdef GL_1_2
-#   define GL_VERSION_1_2
-#   define NO_SHADER
-#endif
-
-#ifdef GL_1_3
-#   define GL_VERSION_1_3
-#   define NO_SHADER
-#endif
-
-#ifdef GL_1_4
-#   define GL_VERSION_1_4
-#   define NO_SHADER
-#endif
-
-#ifdef GL_1_5
-#   define GL_VERSION_1_5
-#   define NO_SHADER
-#endif
-
+/*
 #ifdef GL_2_0
 #   define GL_VERSION_2_0
 #   define SHADER_110
 #endif
+*/
 
 #ifdef GL_2_1
 #   define GL_VERSION_2_1
@@ -79,13 +51,12 @@
 #endif
 
 
-#ifdef NO_SHADER
-#   define ingore_shader
-#endif
-
+/*
 #ifdef SHADER_110
 #   define load_110
 #endif
+*/
+
 
 #ifdef SHADER_120
 #   define load_120
@@ -117,8 +88,9 @@
 
 
 
-#include"lefa/Render/OpenGL/glad_gl.h";
-#include"lefa/Render/OpenGL/shader/shaderv.h";
+#include"lefa/ThirdParty/glad/OpenGL/glad_gl.h";
+#include"lefa/Render/OpenGL/Shader/shaderv.h";
+#include"lefa/Render/OpenGL/Shader/shaderLoader.h";
 
 
 

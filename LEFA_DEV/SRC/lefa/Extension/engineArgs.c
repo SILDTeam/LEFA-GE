@@ -1,12 +1,12 @@
 #include"lefa/engineArgs.h"
 
-#ifdef WIN32
+#ifdef _WIN32
     #include<windows.h>
     //Resource Script
     #include"lefa/platforms/windows_header.h";
 #endif
 
-#ifdef LINUX
+#ifdef _LINUX
     #include<dlfcn.h>
     #include"lefa/platforms/linux_header.h";
 #endif
@@ -21,3 +21,5 @@ void ToggleConsoleWindow(int argc, char** argv)
         HideConsoleWindow();
     }
 }
+
+

@@ -7,3 +7,6 @@
 #ifdef load_120
 #	include"compile_120.h";
 #endif
+
+
+#include"shaderLoader.h";

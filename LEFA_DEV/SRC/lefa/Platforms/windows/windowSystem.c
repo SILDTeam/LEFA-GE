@@ -1,18 +1,16 @@
 /*Open LEFA Project : windowSystem.cpp
 2023*/
 
-#include"windowSystem.hpp";
-#include"uInput.hpp";
+#include"windowSystem.h";
+#include"uInput.h";
 //
-//#include<windows.h>
-//#include<GL/GL.H> //sorry !
-#include<cstdio>
 #include"customCur.h";
 
-//const int FRAME_DELAY_MS = 1; // Defina o valor desejado para o atraso entre quadros (aproximadamente 60 FPS)
 
+HWND hwnd;
+WNDCLASS wc = {0};
+PIXELFORMATDESCRIPTOR pfd = {0};
 
-HWND hWnd; // Manipulador da janela
 UINT uMsg;
 WPARAM wParam;
 LPARAM lParam;
@@ -20,64 +18,37 @@ LPARAM lParam;
 HCURSOR currentCursor;
 HCURSOR cursor;
 
-CursorType requestedCursor = CenterArrow;
+enum CursorType requestedCursor = CenterArrow;
 
 HDC hdc;
 HGLRC hrc;
 
-bool isRunning = true;
+int isRunning = true;
 const char* className = "lefaWClass";
 
-bool isWindowBorderless = false;
+int isWindowBorderless = false;
 
-bool isWindowActive = true; // Variável para controlar se a janela do jogo está ativa ou não
+int isWindowActive = true; // Variável para controlar se a janela do jogo está ativa ou não
 int  windowWidth;
 int  windowHeight;
 
-
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-    // Processar mensagens da janela
     switch (uMsg)
     {
 
         case WM_SETCURSOR:
         {
-            // Aqui você pode definir o cursor padrão ou atualizar para o cursor personalizado
-            // Se quiser usar o cursor personalizado, basta chamar setCursorType com o tipo de cursor desejado
-            // Por exemplo, setCursorType(LeftArrow); para o cursor "LeftArrow"
-
-            // Defina o cursor padrão ou atualize para o cursor personalizado aqui
-            // Exemplo:
-            // setCursorType(CenterArrow);
-            // OU:
-            // setCursorType(LeftArrow);
-
-            //setCursorType(NormalSelect);
-
             onTimerUpdateCursor();
-            //SetCursor(cursor); // who wat
 
-            return TRUE; // Indica que a mensagem foi tratada e não é necessário chamar a função DefWindowProc
+            return TRUE;
         }
+
         case WM_MOUSEMOVE:
         {
-            // Aqui você pode atualizar o cursor quando o mouse se mover dentro da janela, se necessário
-            // Por exemplo, se você quiser que o cursor mude quando estiver sobre uma área específica da janela.
-
-            // Seu código para atualizar o cursor com base na posição do mouse dentro da janela
-            // Exemplo:
-            // int mouseX = LOWORD(lParam);
-            // int mouseY = HIWORD(lParam);
-            // if (mouseX > 100 && mouseY > 100) {
-            //     setCursorType(LeftArrow);
-            // } else {
-            //     setCursorType(CenterArrow);
-            // }
 
             break;
         }
-        
         
         case WM_SIZE:
         {
@@ -89,6 +60,7 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
         case WM_DESTROY:
             PostQuitMessage(0);
+            break;
             return 0;
     }
     
@@ -99,13 +71,18 @@ void onTimerUpdateCursor() {
     setCursorType(requestedCursor); // Define o cursor solicitado
 }
 
-
 void engineCreateWindow(int width, int height)
-{   
-    //Register the window class
-    HINSTANCE hInstance = GetModuleHandle(NULL);
+{  
+    int screenWidth;
+    int screenHeight;
+    int windowPosX;
+    int windowPosY;
+    int pixelFormat;
 
-    WNDCLASS wc = {0};
+    //Register the window class
+    HINSTANCE hInstance = GetModuleHandle(NULL); 
+
+
 
     wc.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
     wc.cbClsExtra = 0;
@@ -118,41 +95,42 @@ void engineCreateWindow(int width, int height)
     wc.lpszClassName = className;
     //RegisterClass(&wc);
 
-    if (!RegisterClass(&wc))
+    if(!RegisterClass(&wc))
+    {
         exit(1);
-
+    }
 
     //Get screen dimensions
-    int screenWidth = GetSystemMetrics(SM_CXSCREEN);
-    int screenHeight = GetSystemMetrics(SM_CYSCREEN);
+    screenWidth = GetSystemMetrics(SM_CXSCREEN);
+    screenHeight = GetSystemMetrics(SM_CYSCREEN);
      //Calculate window coordinates to center it on the screen
-    int windowPosX = (screenWidth - width) / 2;
-    int windowPosY = (screenHeight - height) / 2;
+    windowPosX = (screenWidth - width) / 2;
+    windowPosY = (screenHeight - height) / 2;
 
     // Criar a janela
-    hWnd = CreateWindowEx(
-        0,
-        className,
-        "LEFA_Engine",
-        WS_OVERLAPPEDWINDOW,
-        windowPosX,           //window PosX
-        windowPosY,           //window PosY
-        width,                //window Width
-        height,               //window Height
-        NULL,
-        NULL,
-        wc.hInstance,
-        NULL);
+    hwnd = CreateWindowEx(
+                          0,
+                          className,
+                          "LEFA_Engine",
+                          WS_OVERLAPPEDWINDOW,
+                          windowPosX,           //window PosX
+                          windowPosY,           //window PosY
+                          width,                //window Width
+                          height,               //window Height
+                          NULL,
+                          NULL,
+                          wc.hInstance,
+                          NULL);
 
+    if(hwnd == NULL)
+    {
+        exit(1);
+    }
 
-    if (hWnd == NULL)
-        exit(0);
+    hdc = GetDC(hwnd);
 
-    hdc = GetDC(hWnd);
-
-    PIXELFORMATDESCRIPTOR pfd;
-    ZeroMemory(&pfd, sizeof(pfd));
-    pfd.nSize = sizeof(pfd);
+    ZeroMemory(&pfd, sizeof(PIXELFORMATDESCRIPTOR));
+    pfd.nSize = sizeof(PIXELFORMATDESCRIPTOR);
     pfd.nVersion = 1;
     pfd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER;
     pfd.iPixelType = PFD_TYPE_RGBA;
@@ -161,28 +139,26 @@ void engineCreateWindow(int width, int height)
     pfd.cStencilBits = 8;
     pfd.iLayerType = PFD_MAIN_PLANE;
 
-    int pixelFormat = ChoosePixelFormat(hdc, &pfd);
+    pixelFormat = ChoosePixelFormat(hdc, &pfd);
     SetPixelFormat(hdc, pixelFormat, &pfd);
 
     hrc = wglCreateContext(hdc);
     wglMakeCurrent(hdc, hrc);
 
-    // Mostrar a janela
-    ShowWindow(hWnd, SW_SHOWDEFAULT);
+    // Show The Window.
+    ShowWindow(hwnd, SW_SHOWDEFAULT);
 }
-
 
 int runEngineLoop(void (*renderFunction)())
 {
-
     DWORD lastFrameTime = timeGetTime();
 
     //Start Loop
     MSG msg;
-    while(isRunning) // Loop será executado enquanto isRunning for true
+    while(isRunning) 
     {
         //check if the window is active
-        isWindowActive = (GetForegroundWindow() == hWnd);
+        isWindowActive = (GetForegroundWindow() == hwnd);
 
          setInputEnabled(isWindowActive);
 
@@ -190,7 +166,6 @@ int runEngineLoop(void (*renderFunction)())
         {
             mouseInput();
         }
-
 
         if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
         {
@@ -202,40 +177,22 @@ int runEngineLoop(void (*renderFunction)())
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
-
-    renderFunction();
-    SwapBuffers(hdc);
-
-
-
-    // Calcula o tempo decorrido desde o último quadro
-//        DWORD currentTime = timeGetTime();
-//        DWORD elapsedTime = currentTime - lastFrameTime;
-//
-        // Calcula o tempo que precisamos dormir para atingir o atraso desejado
-//        int sleepTime = FRAME_DELAY_MS - elapsedTime;
-//
-        // Se sleepTime for positivo, dormimos para atingir a taxa de quadros desejada
-//        if (sleepTime > 0) {
-//            Sleep(sleepTime);
-//        }
-
-//        lastFrameTime = currentTime; // Atualiza o tempo do último quadro
-
+        renderFunction();
+        SwapBuffers(hdc);
     }
+
     wglMakeCurrent(NULL, NULL);
     wglDeleteContext(hrc);
-    ReleaseDC(hWnd, hdc);
-    DestroyWindow(hWnd);
+    ReleaseDC(hwnd, hdc);
+    DestroyWindow(hwnd);
 
     return 0;
 }
 
-
 void engineSetWindowTitle(const char* title)
 {
     //Set window title
-    SetWindowText(hWnd, title);
+    SetWindowText(hwnd, title);
 }
 
 void engineSetWindowIcon(const char* iconPath)
@@ -248,20 +205,17 @@ void engineSetWindowIcon(const char* iconPath)
         32,
         32,
         LR_LOADFROMFILE);
-    SendMessage(hWnd, WM_SETICON, ICON_BIG, (LPARAM)hIcon);
+    SendMessage(hwnd, WM_SETICON, ICON_BIG, (LPARAM)hIcon);
 }
-
-
-
 
 void windowBorderless(int windowWidth, int windowHeight)
 {
     if (isWindowBorderless) {
         // Se já está sem bordas, restaura o estilo da janela com bordas
-        DWORD style = GetWindowLongPtr(hWnd, GWL_STYLE);
+        DWORD style = GetWindowLongPtr(hwnd, GWL_STYLE);
         style |= (WS_CAPTION | WS_THICKFRAME);
-        SetWindowLongPtr(hWnd, GWL_STYLE, style);
-        SetWindowPos(hWnd, HWND_TOP,
+        SetWindowLongPtr(hwnd, GWL_STYLE, style);
+        SetWindowPos(hwnd, HWND_TOP,
                      0, 0,
                      windowWidth, windowHeight,
                      SWP_SHOWWINDOW | SWP_FRAMECHANGED);
@@ -270,10 +224,10 @@ void windowBorderless(int windowWidth, int windowHeight)
     }
     else {
         // Se está com bordas, remove as bordas e define o tamanho e posição da janela para ocupar toda a tela
-        DWORD style = GetWindowLongPtr(hWnd, GWL_STYLE);
+        DWORD style = GetWindowLongPtr(hwnd, GWL_STYLE);
         style &= ~(WS_CAPTION | WS_THICKFRAME);
-        SetWindowLongPtr(hWnd, GWL_STYLE, style);
-        SetWindowPos(hWnd, HWND_TOP,
+        SetWindowLongPtr(hwnd, GWL_STYLE, style);
+        SetWindowPos(hwnd, HWND_TOP,
                      0, 0,
                      GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN),
                      SWP_SHOWWINDOW | SWP_FRAMECHANGED);

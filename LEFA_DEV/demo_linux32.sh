@@ -1,3 +1,5 @@
+echo ALERT , linux dont work 
+
 #!/bin/bash
 
 echo ""

@@ -102,6 +102,8 @@ the code is being written in | C 89 and C++ 98
 
 ________
 
+[more help](web_Help_Res/content_help.md)
+
 ### Windows after Install
 </div>
   <details>

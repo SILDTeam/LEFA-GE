@@ -77,13 +77,11 @@ _  Debian 12  x64  did not work, there were linking errors with X11
   ______________ 
 
 CPU  
- Minimum  
-  I386 with SSE2 or Higher
- 
-Recommended  
-  I686 = Intel P6 with SSE2 - or Higher  
+Minimum  
+  ``I686`` = Intel P6 with SSE2 - or Higher  
   
- due to the 6r optimization option, optimization for processors such as Pentium PRO or higher  
+ I recommend not trying to compile for ``i386``, since these processors are much older and out of date, the x32 base computers for the engine are those with ``i686`` or higher as they are much more optimized for calculations and their cores and shifts are faster .    
+
 
 ___________
 

@@ -69,11 +69,11 @@ Listed here are systems I tested the program on
 
 Windows :  
   
-_  Windows XP SP3  x32  worked correctly  
-_  Windows 11 Home x64  worked correctly  
+-  Windows XP SP3  x32  worked correctly  
+-  Windows 11 Home x64  worked correctly  
 
 Linux  
-_  Debian 12  x64  did not work, there were linking errors with X11  
+-  Debian 12  x64  did not work, there were linking errors with X11  
   ______________ 
 
 CPU  
@@ -87,8 +87,8 @@ ___________
 
 RAM  
   Basic Engine  
-  windows XP : 4 MB   
-  windows 11 : 21 MB  
+-  windows XP : 4 MB   
+-  windows 11 : 21 MB  
 
 ___________
 DISC   
@@ -97,8 +97,8 @@ DISC
 
 _____
 Render  
-OpenGL 2.1 or Higher  
-
+- OpenGL 2.1 or Higher  
+- Vulkan ?  
 ____
 
 

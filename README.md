@@ -82,7 +82,7 @@ Minimum
   
  I recommend not trying to compile for ``i386``, since these processors are much older and out of date, the x32 base computers for the engine are those with ``i686`` or higher as they are much more optimized for calculations and their cores and shifts are faster .    
 
-Of course the i686 is still very old, but the ``i386`` is much more outdated compared to the ``i686`` with the SSE2 set  
+Of course the ``i686`` is still very old, but the ``i386`` is much more outdated compared to the ``i686`` with the SSE2 set  
 
 
 ___________

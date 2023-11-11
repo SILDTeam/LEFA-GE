@@ -101,15 +101,36 @@ OpenGL 2.1 or Higher
 
 ____
 
-Even though the code is poorly optimized it is acting well, the problem is the cpu consumption due to the loop and the lack of control over the FPS limit  
+
+## Problems  
+- Even though the code is poorly optimized it is acting well, the problem is the cpu consumption due to the loop and the lack of control over the FPS limit  
 the loop is acting at its full power without any limiter making it consume more cpu than it should  
 
+- Inconsistent changes to the project without a defined structure  
 
-## what you need, to build.
-the code is being written in | C 89 and C++ 98  
-  
+- project being done by just one person, and still being new to coding  
+
+- the project does not contain makefile systems, I don't like make but using other compilers instead of watcom is a pain  
+
+- Currently, configuring the project for different architectures is horrible, and for different systems it is moderately smooth.  
+
+- still stuck in the initial development process for 9 months  
+
+- poorly organized file names and no creation  
 
 ________
+
+## good side 
+
+- is being written in C89 (ANSI C)  
+
+- It seems to be very compatible with some different systems.  
+
+- The purpose is to be light and portable  
+
+- opens on my grandmother's computer, except that it uses OpenGL 2.1  
+
+***
 
 [more help and instructions](web_Help_Res/content_help.md)
 

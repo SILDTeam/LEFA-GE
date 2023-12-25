@@ -103,7 +103,7 @@ DISC
 
 _____
 Render  
-- OpenGL 2.1 or Higher  
+- OpenGL 2.0 or Higher  
 - Vulkan ?  
 ____
 

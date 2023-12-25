@@ -59,6 +59,10 @@ _______
 
 [HYPATIA](https://github.com/dagostinelli/hypatia) mathematical library that I'm still studying, but it looks great
 
+[NUKLEAR](https://github.com/vurtun/nuklear)  for user interface, it seems to be very good.
+
+[TPE](https://codeberg.org/drummyfish/tinyphysicsengine) physics engine made in c99 - however I made an adaptation in c89.
+
 _______
 
 ### Requirements to compile or run

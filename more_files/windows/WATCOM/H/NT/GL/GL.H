@@ -898,8 +898,17 @@ typedef void (* PFNGLGETCOLORTABLEPARAMETERIVEXTPROC)
 typedef void (* PFNGLGETCOLORTABLEPARAMETERFVEXTPROC)
     (GLenum target, GLenum pname, GLfloat *params);
 
+#ifdef APIENTRY
+/* NOTHING */
+#else
+	#if defined(_WIN32)
+		#define APIENTRY __stdcall
+    	#define CUSTOM_APIENTRY_DISABLE
+	#endif
+#endif 
+
 /* Functions in OPENGL32.DLL */
- void APIENTRY        glAccum (GLenum op, GLfloat value);
+ void APIENTRY        glAccum(GLenum op, GLfloat value);
  void APIENTRY        glAlphaFunc (GLenum func, GLclampf ref);
  GLboolean APIENTRY   glAreTexturesResident (GLsizei n, const GLuint *textures, GLboolean *residences);
  void APIENTRY        glArrayElement (GLint i);
@@ -1238,9 +1247,12 @@ typedef void (* PFNGLGETCOLORTABLEPARAMETERFVEXTPROC)
  void APIENTRY        glVertexPointer (GLint size, GLenum type, GLsizei stride, const GLvoid *pointer);
  void APIENTRY        glViewport (GLint x, GLint y, GLsizei width, GLsizei height);
 
-
+#ifdef CUSTOM_APIENTRY_DISABLE
+ 	#undef  APIENTRY
+#endif
 
 
 #endif /* __gl_h__ */
 
 #endif /* __GL_H__ */
+
